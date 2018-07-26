@@ -79,4 +79,4 @@ fs.readdir("./commands/", (err, files) => {
 
   });
 
-client.login("NDQ3OTc2NzAzMDQ2ODQ0NDI3.DjT6CQ.9rSq82-k5ADIn0uEk2UcjfSrbiE");
+client.login("NICE_TRY");
