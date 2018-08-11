@@ -34,7 +34,7 @@ module.exports.run = async (client, message, args) => {
          user.send(help3Embed);
          user.send(help4Embed);
         
-        message.reply("Sent you a dm with my commands!")
+        message.reply(":white_check_mark: Delivered a list of valid commands right into your DMs.");
 
     }
    /*const helpEmbed = new Discord.RichEmbed()
