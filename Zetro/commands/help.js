@@ -3,7 +3,7 @@ const Discord = require("discord.js");
 module.exports.run = async (client, message, args) => {
     if(!args[0]) {
         
-        const user = message.guild.members.get(args[0]) || message.member;   
+        const user = message.guild.members.get(args[0]) || message.member || message.channel;   
         
         const help1Embed = new Discord.RichEmbed()
          .setTitle("You can @mention me for prefix.")
