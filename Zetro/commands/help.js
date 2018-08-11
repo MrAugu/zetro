@@ -2,6 +2,9 @@ const Discord = require("discord.js");
 
 module.exports.run = async (client, message, args) => {
     if(!args[0]) {
+        
+        const user = message.guild.members.get(args[0]) || message.member;   
+        
         const help1Embed = new Discord.RichEmbed()
          .setTitle("You can @mention me for prefix.")
          .setDescription("__**Utility Commands**__:\n**poll** - Makes a poll that users can vote.\n**serverinfo** - Gives details about server.\n**avatar** - Gives you the avatar URL.\n**announce** - Embeds your announcement.\n**whois** - Tells details about a user.\n**servericon** - Displays a link to server icon.\n\n__**Fun Commands**__:\n**8ball** - Ask mystical 8ball.\n**catmeme** - Gives you a rndom cat meme.\n**dogmeme** - Gives you a random dog meme.\n**roll** - Rolls a dice.\n")
@@ -26,10 +29,12 @@ module.exports.run = async (client, message, args) => {
          .setFooter("Page 4/4")
          .setTimestamp();
          
-         message.channel.send(help1Embed);
-         message.channel.send(help2Embed);
-         message.channel.send(help3Embed);
-         message.channel.send(help4Embed);
+         user.send(help1Embed);
+         user.send(help2Embed);
+         user.send(help3Embed);
+         user.send(help4Embed);
+        
+        message.reply("Sent you a dm with my commands!")
 
     }
    /*const helpEmbed = new Discord.RichEmbed()
