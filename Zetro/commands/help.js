@@ -20,9 +20,7 @@ module.exports.run = async (client, message, args) => {
          
          user.send(help1Embed);
          user.send(help3Embed);
-         
-        message.reply(":white_check_mark: Delivered a list of valid commands right into your DMs.");
-
+     
     }
 
 module.exports.help = {
