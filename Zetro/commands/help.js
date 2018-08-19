@@ -15,7 +15,7 @@ module.exports.run = async (client, message, args) => {
          const help3Embed = new Discord.RichEmbed()
          .setTitle("You can @mention me for prefix.")
          .setDescription("**about** - Gives you details about bot.\n**uptime** - Gives you the time bot was up.\n**stats** - Gives you details about me.\n\n__**Moderation Commands**__:\n**mute** - Mutes a user.\n**lockdown** - Locks down a channel.\n**unlockdown** - Unlocks a channel from lockdown.\n**clear** - Clear a specifyed amout of messages.\n**unmute** - Unmutes a user.\n**kick** - Kicks a user from server.\n**ban** - Bans a user from server.\n**warn** - Warns a user.\n\n__**Economy Commands**__:\n**work** - Gives you some money.\n**bal** - Show your balance.\n**register** - Registering you to economy.\n**pay** - Pay a user.\n\n__**Setting Commands**__:\n**setprefix** - Sets a new prefix for server.\n**setlogs** - Sets log channel.\n**settings** - Shows current settings for server.\nSupport Server: https://discord.gg/QGJJBy6\nWebsite: **Comming Soon!**")
-         .setFooter("Page 3/4")
+         .setFooter("Page 2/2")
          .setTimestamp();
          
          user.send(help1Embed);
