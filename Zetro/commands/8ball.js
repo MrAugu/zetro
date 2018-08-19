@@ -4,7 +4,7 @@ module.exports.run = async (client, message, args) => {
     if(!args[0])
     return message.channel.send("Please specify a text.");
   const responses = [
-      " Yes.", "No.", "Maybe.", "Probably.."
+      " Yes.", "No.", "Maybe.", "Probably..", "Ask me later.."
   ]
   message.channel.send(`${responses[Math.floor(Math.random() * responses.length)]}`);
   return;
