@@ -20,7 +20,7 @@ module.exports.run = async (client, message, args) => {
          
          user.send(help1Embed);
          user.send(help3Embed);
-     
+    };
     }
 
 module.exports.help = {
