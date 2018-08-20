@@ -3,6 +3,8 @@ const fs = require("fs");
 const client = new Discord.Client({disableEveryone: true});
 client.commands = new Discord.Collection();
 const coins = require("./coins.json");
+const DBL = require("dblapi.js");
+const dbl = new DBL('Your discordbots.org token', client);
 
 fs.readdir("./commands/", (err, files) => {
 
@@ -28,7 +30,15 @@ fs.readdir("./commands/", (err, files) => {
       console.log("Connected Succefully!");
   });
 
-    
+    //Discord Bot List API Events
+    dbl.on('posted', () => {
+      console.log('Server count posted!');
+    });
+
+    dbl.on('error', e => {
+     console.log(`Oops! ${e}`);
+});
+  //Bot's Events
   client.on("guildCreate", async guild => {
     await client.user.setActivity(`${client.guilds.size} servers | ${client.users.size} users`, { type: 'WATCHING' });
   });
