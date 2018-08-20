@@ -5,6 +5,7 @@ client.commands = new Discord.Collection();
 const coins = require("./coins.json");
 const DBL = require("dblapi.js");
 const dbl = new DBL('Your discordbots.org token', client);
+const talkedRecently = new Set();
 
 fs.readdir("./commands/", (err, files) => {
 
@@ -27,6 +28,7 @@ fs.readdir("./commands/", (err, files) => {
   client.on("ready", async () => {
       await client.user.setActivity(`${client.guilds.size} servers | ${client.users.size} users`, { type: 'WATCHING' });
       await client.user.setStatus("online");
+      /*DBL*/dbl.postStats(client.guilds.size, client.shards.Id, client.shards.total);
       console.log("Connected Succefully!");
   });
 
@@ -41,10 +43,12 @@ fs.readdir("./commands/", (err, files) => {
   //Bot's Events
   client.on("guildCreate", async guild => {
     await client.user.setActivity(`${client.guilds.size} servers | ${client.users.size} users`, { type: 'WATCHING' });
+    /*DBL*/dbl.postStats(client.guilds.size, client.shards.Id, client.shards.total);
   });
   
   client.on("guildDelete", async guild => {
     await client.user.setActivity(`${client.guilds.size} servers | ${client.users.size} users`, { type: 'WATCHING' });
+    /*DBL*/dbl.postStats(client.guilds.size, client.shards.Id, client.shards.total);
   });
 
 
@@ -88,6 +92,14 @@ fs.readdir("./commands/", (err, files) => {
 }
 
    if(!message.content.startsWith(prefix)) return;
+      
+    if (talkedRecently.has(message.author.id))
+  return message.channel.send(`Hold on, too many requests at once!`);
+  talkedRecently.add(message.author.id);
+
+  setTimeout(() => {
+  talkedRecently.delete(message.author.id);
+}, 2500);
 
    let messageArray = message.content.split(" ");
     let cmd = messageArray[0];
