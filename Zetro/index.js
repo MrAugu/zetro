@@ -23,11 +23,20 @@ fs.readdir("./commands/", (err, files) => {
   });
 
   client.on("ready", async () => {
-      await client.user.setActivity(`in ${client.guilds.size} servers | @Zetro`, { type: 'PLAYING' });
+      await client.user.setActivity(`${client.guilds.size} servers | ${client.users.size} users`, { type: 'WATCHING' });
       await client.user.setStatus("online");
-      console.log(`Im connected succefully to all servers (${client.guilds.size}) and all channels.`);
-      console.log("Connection is stable, no errors at this time.");
+      console.log("Connected Succefully!");
   });
+
+    
+  client.on("guildCreate", async guild => {
+    await client.user.setActivity(`${client.guilds.size} servers | ${client.users.size} users`, { type: 'WATCHING' });
+  });
+  
+  client.on("guildDelete", async guild => {
+    await client.user.setActivity(`${client.guilds.size} servers | ${client.users.size} users`, { type: 'WATCHING' });
+  });
+
 
   client.on("message", async message => {
     if(message.author.bot) return;
