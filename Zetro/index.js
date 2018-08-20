@@ -32,15 +32,23 @@ fs.readdir("./commands/", (err, files) => {
       console.log("Connected Succefully!");
   });
 
-    //Discord Bot List API Events
-    dbl.on('posted', () => {
-      console.log('Server count posted!');
-    });
 
-    dbl.on('error', e => {
-     console.log(`Oops! ${e}`);
+    //Discord Bot List API Events
+  dbl.on('posted', () => {
+    console.log('Server count posted!');
+  });
+
+  dbl.on('error', e => {
+    console.log(`Oops! ${e}`);
 });
   //Bot's Events
+client.on("guildMemberAdd", (member) => {
+    /* Comming Soon */
+});
+
+  client.on("guildMemberRemove", (member) => {
+    /* Comming Soon */
+  });
   client.on("guildCreate", async guild => {
     await client.user.setActivity(`${client.guilds.size} servers | ${client.users.size} users`, { type: 'WATCHING' });
     /*DBL*/dbl.postStats(client.guilds.size, client.shards.Id, client.shards.total);
