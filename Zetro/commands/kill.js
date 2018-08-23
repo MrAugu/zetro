@@ -14,15 +14,15 @@ module.exports.run = async (client, message, args) => {
    }
 
    if (kill === 2) {
-     message.channel.send(`🦊 **${member.user.username}** suffocates of heat in your fursuit.`);
+     message.channel.send(`🌩 **${member.user.username}** has been striked by a storm.`);
    }
 
    if (kill === 3) {
-     message.channel.send(`🚚 You drive over **${member.user.username}** with your Ford truck.`);
+     message.channel.send(`🚚 You drive over **${member.user.username}** with your truck.`);
    }
 
    if (kill === 4) {
-     message.channel.send(`🍔 You feed **${member.user.username}** too much trans fat, until their arteries were clogged.`);
+     message.channel.send(`🏓 **${member.user.username}** pinged everyone in his server, awch..`);
    }
 
 	 if (kill === 5) {
