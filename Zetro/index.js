@@ -2,7 +2,6 @@ const Discord = require ("discord.js");
 const fs = require("fs");
 const client = new Discord.Client({disableEveryone: true});
 client.commands = new Discord.Collection();
-const coins = require("./coins.json");
 const DBL = require("dblapi.js");
 const dbl = new DBL('Your discordbots.org token', client);
 const talkedRecently = new Set();
@@ -74,21 +73,6 @@ client.on("guildMemberAdd", (member) => {
 
     let prefix = prefixes[message.guild.id].prefixes;
 
-    if(coins[message.author.id]){
-        let coinAmt = Math.floor(Math.random() * 72) + 1;
-        let baseAmt = Math.floor(Math.random() * 72) + 1;
-  
-      if(coinAmt === baseAmt){
-        coins[message.author.id] = {
-        coins: coins[message.author.id].coins + coinAmt
-      };
-  
-        fs.writeFile("./coins.json", JSON.stringify(coins), (err) => {
-        if (err) console.log(err)
-      });
-    }
-  }
-   
    if (message.isMentioned(client.user)) {
     const mentionEmbed = new Discord.RichEmbed()
     .setTitle("Prefix for this server is:")
