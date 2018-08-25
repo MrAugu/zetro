@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 const fs = require("fs");
 
 module.exports.run = async (client, message, args) => {
-  if(!message.member.hasPermission("MANAGE_GUILD"))
+  /*if(!message.member.hasPermission("MANAGE_GUILD"))
   return message.channel.send("You don't have permission to do that.");
   if(!args[0])
   return message.channel.send("Please provide a prefix.");
@@ -24,7 +24,7 @@ module.exports.run = async (client, message, args) => {
     .addField(`Pro Tip:`, "If you forget the prefix, you can @mention me at anytime.")
     .setTimestamp();
     message.channel.send(prefixEmbed);
-    return;
+    return;*/
 }
 
 module.exports.help = {
