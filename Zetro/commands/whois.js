@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 
-module.exports.run = async (client, message, args) => {
+exports.run = async (client, message, args) => {
     let inline = true
     let resence = true
     
@@ -27,12 +27,7 @@ module.exports.run = async (client, message, args) => {
                 .addField("Roles", `${member.roles.filter(r => r.id !== message.guild.id).map(roles => `\`${roles.name}\``).join(" **|** ") || "User has no roles"}`, true)
                 .addField("Joined Discord", member.user.createdAt)
                 .setFooter(`Information about ${member.user.username} | Requested by ${message.author.tag}`)
-                .setTimestamp()
+                .setTimestamp();
     
             message.channel.send(embed);
-            return;
-}
- 
-module.exports.help = {
-  name: "whois"
-}
+};
