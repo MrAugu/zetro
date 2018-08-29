@@ -1,7 +1,8 @@
 const Discord = require("discord.js");
 const fs = require("fs");
 
-module.exports.run = async (client, message, args) => {
+exports.run = async (client, message, args) => {
+  /*
   if(!message.member.hasPermission("MANAGE_GUILD"))
   return message.channel.send("You don't have permission to do that.");
   if(!args[0])
@@ -25,9 +26,5 @@ module.exports.run = async (client, message, args) => {
     .addField("Pro Tip:", `To keep logs of moderation commands wich provides you alot information regarding server, have a channel exactly named "${args[0]}"`)
     .setTimestamp();
     message.channel.send(logsEmbed);
-    return;
-}
-
-module.exports.help = {
-  name: "setlogs"
-}
+    return;*/
+};
