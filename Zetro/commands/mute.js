@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 const fs = require("fs");
 
-module.exports.run = async (bot, message, args) => {
+exports.run = async (bot, message, args) => {
   let f = client.emojis.find(c => c.name === "zuncheck");
   let s = client.emojis.find(c => c.name === "zcheck");
 
