@@ -85,7 +85,40 @@ Please provide a value from ranging from 1 to 10 wich match desired song.
 		if (!serverQueue) return msg.channel.send('Nothing playing, so i can\'t skip anything for you!');
 		serverQueue.connection.dispatcher.end('Alright, song skiped!');
 		return undefined;
-
+	} else if (command === 'mode') {
+		if (!msg.member.voiceChannel) return msg.channel.send('You aren\'t connected to any voice channel!');
+		let mode = "None";
+		let vol = serverQueue.volume;
+		if (vol > 5) mode = "Low"; 
+		if (vol > 15) mode = "Medium"; 
+		if (vol > 25) mode = "High"; 
+		if (vol > 35) mode = "Earrape";
+		if(!args[1])
+		return msg.channel.send(`Current Mode is: **${mode}**`);
+		
+		if(args[1] === "low") {
+		let lvol = 7;
+		serverQueue.volume = 7;
+		serverQueue.connection.dispatcher.setVolumeLogarithmic(lvol / 5);
+		msg.channel.send("Mode set to Low!");
+		} else if (args[1] === "medium") {
+		let mvol = 18;
+		serverQueue.volume = 18;
+		serverQueue.connection.dispatcher.setVolumeLogarithmic(mvol / 5);
+		msg.channel.send("Mode set to Medium!");
+		} else if (args[1] === "high") {
+		let hvol = 29;
+		serverQueue.volume = 29;
+		serverQueue.connection.dispatcher.setVolumeLogarithmic(hvol / 5);
+		msg.channel.send("Mode set to High!");
+		} else if (args[1] === "earrape") {
+		let evol = 45;
+		serverQueue.volume = 45;
+		serverQueue.connection.dispatcher.setVolumeLogarithmic(evol / 5);
+		msg.channel.send("Mode set to Earrape!");
+		} else {
+		return msg.channel.send("Not a valid mode.\nValid Modes: `low`,`medium`,`high` and `earrape`");
+		}
 	} else if (command === 'stop') {
 		if (!msg.member.voiceChannel) return msg.channel.send('You aren\'t connected to any voice channel!');
 		if (!serverQueue) return msg.channel.send('Nothing playing, so i can\'t stop streaming!');
@@ -95,6 +128,7 @@ Please provide a value from ranging from 1 to 10 wich match desired song.
 	} else if (command === 'volume') {
 		if (!msg.member.voiceChannel) return msg.channel.send('You aren\'t connected to any voice channel!');
 		if (!serverQueue) return msg.channel.send('Nothing playing, i can\'t see how i can help you further!');
+		if(isNaN(args[1])) return msg.channel.send(`Can't set volume to ${args[1]}`);
 		if (!args[1]) return msg.channel.send(`The current volume is: **${serverQueue.volume}**`);
 		serverQueue.volume = args[1];
 		serverQueue.connection.dispatcher.setVolumeLogarithmic(args[1] / 5);
