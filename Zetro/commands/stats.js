@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 
-module.exports.run = async (client, message, args) => {
+exports.run = async (client, message, args) => {
     let totalSeconds = (client.uptime / 1000);
     let hours = Math.floor(totalSeconds / 3600);
     totalSeconds %= 3600;
@@ -10,7 +10,7 @@ module.exports.run = async (client, message, args) => {
   const statsEmbed = new Discord.RichEmbed()
   .setTitle("Stats")
   .setAuthor(message.author.username, message.author.avatarURL)
-  .setColor("#fe6519")
+  .setColor("#d67e19")
   .setDescription("These stats are changing pretty often.")
   .addField("Developer:", `MrAugu#9016`)
   .addField("Total Channels:", `${client.channels.size}`)
@@ -23,9 +23,4 @@ module.exports.run = async (client, message, args) => {
   .setFooter("Powered by MrAugu")
   .setTimestamp();
   message.channel.send(statsEmbed);
-  return;
-}
- 
-module.exports.help = {
-  name: "stats"
-}
+};
