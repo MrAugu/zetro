@@ -17,7 +17,7 @@ client.on("message", message => {
   if (message.author.bot) return;
   if(message.content.indexOf(config.prefix) !== 0 || blacklist.includes(message.author.id)) return;
 
-  const args = message.content.split(/[ ]/);
+  let args = messageArray.slice(1);
 
   const command = message.content.split(" ")[0].toLowerCase().slice(config.prefix.length);
 
