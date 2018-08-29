@@ -8,4 +8,4 @@ exports.run = async (client, message, args) => {
     let text = args.slice(0).join(" ");
     message.channel.send(`${text}\n\nThis message has been sayd by ${message.author.tag}!`);
     await message.delete();
-}
+};
