@@ -1,14 +1,11 @@
 const Discord = require("discord.js");
 
-module.exports.run = async (client, message, args) => {
+exports.run = async (client, message, args) => {
+    let f = client.emojis.find(c => c.name === "zuncheck");
+    
     if(!args[0])
-    return message.channel.send("Please specify a text.");
+    return message.channel.send(`${f} Please specify a text.`);
     let text = args.slice(0).join(" ");
-    message.channel.send(`${text}\n/Sayd by **${message.author.tag}**/`);
-    return;
-
-}
-
-module.exports.help = {
-  name: "say"
+    message.channel.send(`${text}\n\nThis message has been sayd by ${message.author.tag}!`);
+    await message.delete();
 }
