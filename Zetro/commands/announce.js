@@ -7,15 +7,15 @@ exports.run = async (client, message, args) => {
     if(!message.member.hasPermission(`MANAGE_MESSAGES`))
     return message.channel.send(`${f} You don't have permission to do that!`);
     
-    if(!args[0]) 
+    if(!args[1]) 
     return message.channel.send(`${f} Please specify a text.`);
     
-    let channelname = args[0];
-    let channel = message.guild.channels.find("name", `${channelname}`);
+    let channelname = args[1];
+    let channel = message.guild.channels.find(c => c.name === `${channelname}`);
     if(!channel)
     return message.channel.send(`${f} Please name a valid channel of  this server!`);
     
-    let announcement = args.slice(1).join(" ");
+    let announcement = args.slice(2).join(" ");
     message.delete();
     
     const announcementEmbed = new Discord.RichEmbed()
