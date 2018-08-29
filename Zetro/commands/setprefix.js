@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 const fs = require("fs");
 
-module.exports.run = async (client, message, args) => {
+exports.run = async (client, message, args) => {
   /*if(!message.member.hasPermission("MANAGE_GUILD"))
   return message.channel.send("You don't have permission to do that.");
   if(!args[0])
@@ -25,8 +25,4 @@ module.exports.run = async (client, message, args) => {
     .setTimestamp();
     message.channel.send(prefixEmbed);
     return;*/
-}
-
-module.exports.help = {
-  name: "setprefix"
-}
+};
