@@ -1,39 +1,24 @@
 const Discord = require("discord.js");
 const fs = require("fs");
 
-module.exports.run = async (client, message, args) => {
+exports.run = async (client, message, args) => {
+    let f = client.emojis.find(c => c.name === "zuncheck");
+    let s = client.emojis.find(c => c.name === "zcheck");
+    
     if(!message.member.hasPermission("MANAGE_MESSAGES"))
-    return message.channel.send("You don't have permission to do that!");
+    return message.channel.send(`${f} You do not have permission to do so!`);
+    
     const deleteCount = parseInt(args[0], 10);
     if(!deleteCount)
-    return message.channel.send("Please specify a amount of messages to delete.");
+    return message.channel.send(`${f} Please specify an amount of messages to delete.`);
     if(deleteCount > 100)
-    return message.channel.send("Please specify a smaller amount.");
+    return message.channel.send(`${f} Please specify a smaller amount.`);
     if(deleteCount < 1)
-    return message.channel.send("Please specify a bigger ammount.");
-    const fetched= await message.channel.fetchMessages({limit: deleteCount});
+    return message.channel.send(`${f} Please specify a bigger ammount.`);
+    
+    const fetched = await message.channel.fetchMessages({limit: deleteCount});
     message.channel.bulkDelete(fetched)
-    const deletemessage = await message.channel.send(`**${deleteCount}** messages has been deleted!`);
+    
+    const deletemessage = await message.channel.send(`${f} **${deleteCount}** messages has been deleted!`);
     deletemessage.delete(5000);
-
-    let logs = JSON.parse(fs.readFileSync("./logs.json", "utf8"));
-
-    if(!logs[message.guild.id]) {
-      logs[message.guild.id] = {
-        logs: "logs"
-      };
-    }
-
-    let log = logs[message.guild.id].logs;
-
-    let lc = message.guild.channels.find(`id`, `${log}`);
-    if(!lc) return;
-
-   lc.send(`:wastebasket: **${message.author.tag}** deleted ${deleteCount} messages.\n**Channel:** <#${message.channel.id}>\n**ChannelID:** ${message.channel.id}`);
-   return;
-
-}
-
-module.exports.help = {
-  name: "clear"
-}
+};
