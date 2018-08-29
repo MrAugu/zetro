@@ -1,6 +1,7 @@
 const Discord = require("discord.js");
 
-module.exports.run = async (client, message, args) => {
+exports.run = async (client, message, args) => {
+  
   let sicon = message.guild.iconURL;
   const sinfoembed = new Discord.RichEmbed()
   .setColor("#0ad1d1")
@@ -19,9 +20,5 @@ module.exports.run = async (client, message, args) => {
   .addField("Server's Reggion:", `${message.guild.region}`)
   .setFooter("Zetro 2018")
   message.channel.send(sinfoembed);
-  return;
-}
- 
-module.exports.help = {
-  name: "serverinfo"
-}
+
+};
