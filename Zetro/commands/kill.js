@@ -1,11 +1,17 @@
 const Discord = require("discord.js");
 
-module.exports.run = async (client, message, args) => {
-	   if(!args[0]) return message.channel.send("Mention someone to kill!`! kick <user>`");
-   let member = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
-	 if(!member) return message.channel.send(`You can't kill ${args[0]}!`);
-	 let teu = client.emojis.find("name", `teutroll`);
-	 let ban = client.emojis.find("name", `ban`);
+exports.run = async (client, message, args) => {
+	let f = client.emojis.find(c => c.name === "zuncheck");
+	if(!args[0])
+	return message.channel.send(`${f} Please mention someone to kick!`);
+	
+   	let member = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
+	
+	if(!member) 
+	return message.channel.send(`${f} You can't kill ${args[0]}!`);
+	 let teu = client.emojis.find(c => c.name === "teutroll");
+	 let ban = client.emojis.find(c => c.name === "ban");
+	
    let random = Math.random() * 5 + 1;
    var kill = Math.round(random)
 
@@ -32,8 +38,4 @@ module.exports.run = async (client, message, args) => {
 	 if (kill === 6) {
 		 message.channel.send(`${ban} Zevu killed **${member.user.username}** because he repeatedly pinged him.`);
 	 }
-}
-
-module.exports.help = {
-  name: "kill"
-}
+};
