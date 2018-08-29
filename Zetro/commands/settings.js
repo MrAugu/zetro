@@ -1,7 +1,8 @@
 const Discord = require("discord.js");
 const fs = require("fs");
 
-module.exports.run = async (client, message, args) => {
+exports.run = async (client, message, args) => {
+    /*
     let prefixes = JSON.parse(fs.readFileSync("./prefixes.json", "utf8"));
     if(!prefixes[message.guild.id]) {
       prefixes[message.guild.id] = {
@@ -48,9 +49,5 @@ module.exports.run = async (client, message, args) => {
     .addField("Automod: Anti-Link", `${btws}`)
     .addField("Automod: Anti-Invite", `${btw}`)
     .setTimestamp();
-    message.channel.send(settingsEmbed);
-}
-
-module.exports.help = {
-  name: "settings"
-}
+    message.channel.send(settingsEmbed);*/
+};
