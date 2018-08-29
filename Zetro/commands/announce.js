@@ -1,8 +1,9 @@
 const Discord = require("discord.js");
 
-module.exports.run = async (client, message, args) => {
-     let f = client.emojis.find("name", `zuncheck`);
-     let s = client.emojis.find("name", `zcheck`);
+exports.run = async (client, message, args) => {
+     let f = client.emojis.find(c => c.name === "zuncheck");
+     let s = client.emojis.find(c => c.name === "zcheck");
+
     if(!message.member.hasPermission(`MANAGE_MESSAGES`))
     return message.channel.send(`${f} You don't have permission to do that!`);
     
@@ -26,8 +27,6 @@ module.exports.run = async (client, message, args) => {
     .setTimestamp();
     channel.send(announcementEmbed);
     message.channel.send(`${s} Announcement has been sent!`);
-  }
+     
+  };
   
-  module.exports.help = {
-    name: "announce"
-  }
