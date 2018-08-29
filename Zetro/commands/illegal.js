@@ -1,8 +1,10 @@
 const Discord = require("discord.js");
 
-module.exports.run = async (client, message, args) => {
+exports.run = async (client, message, args) => {
+     let f = client.emojis.find(c => c.name === "zuncheck");
+    
     if(!args[0])
-    return message.channel.send("Please specify a text!");
+    return message.channel.send(`${f} Please specify a text!`);
     let ilegalstuff = args.slice(0).join(" ");
     message.delete();
     let ilegalEmbed = new Discord.RichEmbed()
@@ -13,10 +15,5 @@ module.exports.run = async (client, message, args) => {
     .setThumbnail("https://imgur.com/EbsemRd")
     .setTimestamp();
     message.channel.send(ilegalEmbed);
-    return;
 
-}
-
-module.exports.help = {
-  name: "illegal"
-}
+};
