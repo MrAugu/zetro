@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 
-module.exports.run = async (client, message, args) => {
+exports.run = async (client, message, args) => {
     let totalSeconds = (client.uptime / 1000);
     let hours = Math.floor(totalSeconds / 3600);
     totalSeconds %= 3600;
@@ -12,9 +12,4 @@ module.exports.run = async (client, message, args) => {
     .setDescription(`${uptime}`)
     .setTimestamp();
     message.channel.send(uptimeEmbed);
-    return;
-}
-
-module.exports.help = {
-  name: "uptime"
-}
+};
