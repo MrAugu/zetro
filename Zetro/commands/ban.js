@@ -8,11 +8,11 @@ exports.run = async (client, message, args) => {
   if(!message.member.hasPermission("BAN_MEMBERS"))
   return message.channel.send(`${f} You do not have the permission to do so!`);
   
-  let member = message.mentions.members.first() || message.guild.members.get(args[0]);
+  let member = message.mentions.members.first() || message.guild.members.get(args[1]);
   if(!member)
   return message.channel.send(`${f} Please mention a valid user!`);
   
-  let reason = args.slice(1).join(" ");
+  let reason = args.join(" ");
   if(!reason)
   return message.channel.send(`${f} Please specify a reason!`);
   
@@ -20,7 +20,7 @@ exports.run = async (client, message, args) => {
   return message.channel.send(`${f} Sorry but i cannot allow self-harm!`);
   
   if(!member.bannable)
-  return message.channel.send(`${f} Oops, something went wrong while banning ${member.user.tag}!`);
+  return message.channel.send(`${f} Oops, something went wrong while banning **${member.user.tag}**!`);
   
   await member.ban(reason)
   message.channel.send(`${s} **${member.user.tag}** has been banned succefully!`);
