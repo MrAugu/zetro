@@ -8,11 +8,11 @@ exports.run = async (client, message, args) => {
     if(!message.member.hasPermission("KICK_MEMBERS"))
     return message.channel.send(`${f} You don't have permission to do that!`);
   
-    let member = message.mentions.members.first() || message.guild.members.get(args[0]);
+    let member = message.mentions.members.first() || message.guild.members.get(args[1]);
     if(!member)
     return message.channel.send(`${f} Please mention a valid user!`);
   
-    let reason = args.slice(1).join(" ");
+    let reason = args.slice(2).join(" ");
     if(!reason)
     return message.channel.send(`${f} Please specify a reason.`);
   
