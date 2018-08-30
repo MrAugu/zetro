@@ -3,7 +3,8 @@ const randomizeCase = word => word.split('').map(c => Math.random() > 0.5 ? c.to
 
 exports.run = async (client, message, args) => {
   let f = client.emojis.find(c => c.name === "zuncheck");
-  if (!args[0]) 
+  if (!args[1]) 
   return message.channel.send(`${f} Please specify a senence to random capitalise.`);
-    message.channel.send(args.map(randomizeCase).join(':clap:'));
+  let arg = args.slice(1).join(" ");
+    message.channel.send(arg.map(randomizeCase).join(':clap:'));
 };
