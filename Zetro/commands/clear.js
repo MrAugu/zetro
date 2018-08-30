@@ -8,7 +8,9 @@ exports.run = async (client, message, args) => {
     if(!message.member.hasPermission("MANAGE_MESSAGES"))
     return message.channel.send(`${f} You do not have permission to do so!`);
     
-    const deleteCount = parseInt(args[0], 10);
+    const deleteCount = parseInt(args[1], 10);
+    if(isNaN(deleteCount))
+    return message.channel.send (`${f} Only integers are allowed!`);
     if(!deleteCount)
     return message.channel.send(`${f} Please specify an amount of messages to delete.`);
     if(deleteCount > 100)
@@ -19,6 +21,6 @@ exports.run = async (client, message, args) => {
     const fetched = await message.channel.fetchMessages({limit: deleteCount});
     message.channel.bulkDelete(fetched)
     
-    const deletemessage = await message.channel.send(`${f} **${deleteCount}** messages has been deleted!`);
-    deletemessage.delete(5000);
+    const deletemessage = await message.channel.send(`${s} **${deleteCount}** messages has been deleted!`);
+    deletemessage.delete(4000);
 };
