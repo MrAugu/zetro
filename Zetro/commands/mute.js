@@ -15,7 +15,7 @@ exports.run = async (bot, message, args) => {
   if(tomute.hasPermission("MANAGE_MESSAGES")) 
   return message.channel.send(`${f} Sorry, the user can't be muted!`);
   
-  let reason = args.slice(1).join(" ");
+  let reason = args.slice(2).join(" ");
   if(!reason)
   return message.channel.send(`${f} Please specify a reason!`);
 
