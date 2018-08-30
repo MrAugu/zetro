@@ -8,7 +8,7 @@ exports.run = async (client, message, args) => {
     if(!message.member.hasPermission("MANAGE_GUILD"))
     return message.channel.send(`${f} You don't have permission to do that!`);
     
-    let reason = args.slice(0).join(" ");
+    let reason = args.slice(1).join(" ");
     if(!reason)
     return message.channel.send(`${f} Please specify a reason!`);
     
