@@ -12,7 +12,7 @@ exports.run = async (client, message, args) => {
   if(!member)
   return message.channel.send(`${f} Please mention a valid user!`);
   
-  let reason = args.join(" ");
+  let reason = args.slice(1).join(" ");
   if(!reason)
   return message.channel.send(`${f} Please specify a reason!`);
   
