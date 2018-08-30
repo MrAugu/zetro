@@ -5,7 +5,7 @@ exports.run = async (client, message, args) => {
 	if(!args[0])
 	return message.channel.send(`${f} Please mention someone to kick!`);
 	
-   	let member = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
+   	let member = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[1]);
 	
 	if(!member) 
 	return message.channel.send(`${f} You can't kill ${args[0]}!`);
