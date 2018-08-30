@@ -3,9 +3,9 @@ const Discord = require("discord.js");
 exports.run = async (client, message, args) => {
      let f = client.emojis.find(c => c.name === "zuncheck");
     
-    if(!args[0])
-    return message.channel.send(`${f} Please specify a text!`);
-    let ilegalstuff = args.slice(0).join(" ");
+    if(!args[1])
+    return message.channel.send(`{f} Please specify a text!`);
+    let ilegalstuff = args.slice(1).join(" ");
     message.delete();
     let ilegalEmbed = new Discord.RichEmbed()
     .setColor("#000000")
