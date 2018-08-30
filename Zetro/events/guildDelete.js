@@ -1,3 +1,5 @@
+const Discord = require("discord.js");
+
 exports.run = (client, guild) => {
   const ServerLog = client.channels.get('484425064146665472');
 
