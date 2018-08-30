@@ -10,7 +10,7 @@ exports.run = async (client, message, args) => {
 
     if(!args[0]) return message.channel.send(`${f} Please specify a test to asciify!`);
 
-    figlet(`${args.join(' ')}`, function(err, data) {
+    figlet(`${args.slice(1).join(' ')}`, function(err, data) {
         if (err) {
             console.log('Something went wrong...');
             return;
