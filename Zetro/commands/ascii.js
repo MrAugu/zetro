@@ -8,7 +8,7 @@ exports.run = async (client, message, args) => {
 
     if(args.join(' ').length > maxLen) return message.channel.send(`${f} Only 14 characters are admitted!`);
 
-    if(!args[0]) return message.channel.send(`${f} Please specify a test to asciify!`);
+    if(!args[1]) return message.channel.send(`${f} Please specify a test to asciify!`);
 
     figlet(`${args.slice(1).join(' ')}`, function(err, data) {
         if (err) {
