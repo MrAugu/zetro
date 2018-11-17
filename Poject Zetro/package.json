@@ -1,0 +1,27 @@
+{
+
+  "name": "Zetro",
+
+  "description": "A very good discord bot.",
+
+  "version": "1.0.2",
+
+  "main": "index.js",
+
+  "scripts": {
+
+    "start": "node index.js"
+
+  },
+
+  "dependencies": {
+
+    "discord.js": "11.3.0",
+
+    "dblapi.js": "2.1.0", 
+    
+    "request": "2.81.0"
+
+  }
+
+}
